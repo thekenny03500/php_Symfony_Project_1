@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnnonceController!{% endblock %}
+
+{% block body %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="d-flex flex-wrap">
+            {% for Annonce in Annonces %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ Annonce.getTitre }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ Annonce.getContenu }}</h6>
+                        <p class="card-text">Date : {{ Annonce.getCreatedAt.format('Y-m-d H:i:s') }}</p>
+                        <p class="card-text">{{ Annonce.getPrix }}€</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
